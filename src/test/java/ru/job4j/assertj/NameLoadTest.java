@@ -1,6 +1,7 @@
 package ru.job4j.assertj;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NameLoadTest {
@@ -11,6 +12,7 @@ class NameLoadTest {
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining("no data");
     }
+
     @Test
     void checkValidateHasSymbol() {
         NameLoad nameLoad = new NameLoad();
@@ -20,6 +22,7 @@ class NameLoadTest {
                 .hasMessageContaining("does not contain the symbol \"=\"")
                 .hasMessageContaining(name);
     }
+
     @Test
     void checkValidateHasKey() {
         NameLoad nameLoad = new NameLoad();
