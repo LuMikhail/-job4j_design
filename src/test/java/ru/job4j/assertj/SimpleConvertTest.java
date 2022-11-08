@@ -44,15 +44,15 @@ class SimpleConvertTest {
     @Test
     void checkMap() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        Map<String, Integer> map = simpleConvert.toMap("cucumber", "tomato", "grapes");
-        map.replace("cucumber", 110);
-        map.replace("tomato", 80);
-        map.replace("grapes", 130);
+        Map<String, Integer> map = simpleConvert.toMap("cucumber price", "tomato price", "grapes price");
+        map.replace("cucumber price", 110);
+        map.replace("tomato price", 80);
+        map.replace("grapes price", 130);
         assertThat(map).hasSize(3)
-                .containsKeys("cucumber", "tomato", "grapes")
+                .containsKeys("cucumber price", "tomato price", "grapes price")
                 .containsValues(110, 80, 130)
-                .doesNotContainKey("potato")
+                .doesNotContainKey("potato price")
                 .doesNotContainValue(90)
-                .containsEntry("tomato", 80);
+                .containsEntry("tomato price", 80);
     }
 }
