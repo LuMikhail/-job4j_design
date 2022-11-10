@@ -6,17 +6,17 @@ package ru.job4j.generics.container;
  * Однако заново реализовывать их не нужно так как вызываться реализации этих методов из MemStore,
  * поскольку объект именно этого типа мы используем в качестве хранилища.
  */
-public class UserStore implements Store<User> {
+public class RoleStore implements Store<Role> {
 
-    private final Store<User> store = new MemStore<>();
+    private final Store<Role> store = new MemStore<>();
 
     @Override
-    public void add(User model) {
+    public void add(Role model) {
         store.add(model);
     }
 
     @Override
-    public boolean replace(String id, User model) {
+    public boolean replace(String id, Role model) {
         return store.replace(id, model);
     }
 
@@ -26,7 +26,7 @@ public class UserStore implements Store<User> {
     }
 
     @Override
-    public User findById(String id) {
+    public Role findById(String id) {
         return store.findById(id);
     }
 }
