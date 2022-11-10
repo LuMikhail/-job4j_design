@@ -51,41 +51,41 @@ class RoleStoreTest {
     @Test
     void whenDeleteRoleThenRoleIsNull() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
+        store.add(new Role("1", "Ivan"));
         store.delete("1");
         Role result = store.findById("1");
         assertThat(result).isNull();
     }
 
     @Test
-    void whenNoDeleteRoleThenRoleNameIsPetr() {
+    void whenNoDeleteRoleThenRoleNameIsIvan() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
+        store.add(new Role("1", "Ivan"));
         store.delete("10");
         Role result = store.findById("1");
-        assertThat(result.getRolename()).isEqualTo("Petr");
+        assertThat(result.getRolename()).isEqualTo("Ivan");
     }
 
     @Test
     void whenReplaceOkThenTrue() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
-        boolean rsl = store.replace("1", new Role("1", "Maxim"));
+        store.add(new Role("1", "Inna"));
+        boolean rsl = store.replace("1", new Role("1", "Masha"));
         assertThat(rsl).isTrue();
     }
 
     @Test
     void whenReplaceNotOkThenFalse() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
-        boolean rsl = store.replace("10", new Role("10", "Maxim"));
+        store.add(new Role("1", "Inna"));
+        boolean rsl = store.replace("10", new Role("10", "Masha"));
         assertThat(rsl).isFalse();
     }
 
     @Test
     void whenDeleteOkThenTrue() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
+        store.add(new Role("1", "Masha"));
         boolean rsl = store.delete("1");
         assertThat(rsl).isTrue();
     }
@@ -93,7 +93,7 @@ class RoleStoreTest {
     @Test
     void whenDeleteNotOkThenFalse() {
         RoleStore store = new RoleStore();
-        store.add(new Role("1", "Petr"));
+        store.add(new Role("1", "Masha"));
         boolean rsl = store.delete("2");
         assertThat(rsl).isFalse();
     }
