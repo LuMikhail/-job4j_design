@@ -19,7 +19,7 @@ public class LogFilter {
      */
     public List<String> filter(String file) {
         List<String> result = new ArrayList<>();
-        try (BufferedReader in = new BufferedReader(new FileReader("log.txt"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
             in.lines()
                     .filter(f -> {
                         String[] predicate = f.split(" ");
