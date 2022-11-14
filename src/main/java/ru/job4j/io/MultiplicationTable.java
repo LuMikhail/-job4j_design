@@ -1,7 +1,11 @@
 package ru.job4j.io;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 
+/**
+ * Класс записывает в файл таблицу умножения.
+ */
 public class MultiplicationTable {
     public static void main(String[] args) {
         try (FileOutputStream out = new FileOutputStream("multiplication_table.txt")) {
@@ -15,7 +19,7 @@ public class MultiplicationTable {
                 }
                 out.write(System.lineSeparator().getBytes());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
