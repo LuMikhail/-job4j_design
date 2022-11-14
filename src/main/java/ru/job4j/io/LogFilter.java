@@ -1,14 +1,13 @@
 package ru.job4j.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс с помощью метода читает файл и возвращает строки, в которых предпоследний элемент содержит - 404.
- *
+ * Класс с помощью методов:
+ * <p> 1. Читает файл и возвращает строки, в которых предпоследний элемент содержит - 404.</p>
+ * <p> 2. Записывает отфильтрованные данные в новый файл.</p>
  */
 public class LogFilter {
     /**
@@ -32,9 +31,28 @@ public class LogFilter {
         return result;
     }
 
+    /**
+     * Метод записывает отобранные данные в новый файл.
+     *
+     * @param log  входящая коллекция с новыми данными.
+     * @param file в который записываются новые данные.
+     */
+    public static void save(List<String> log, String file) {
+        try (PrintWriter out = new PrintWriter(
+                new BufferedOutputStream(
+                        new FileOutputStream(file)
+                ))) {
+            for (String s : log) {
+                out.printf("%s%n", s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         LogFilter logFilter = new LogFilter();
         List<String> log = logFilter.filter("log.txt");
-        log.forEach(System.out::println);
+        save(log, "404.txt");
     }
 }
