@@ -23,8 +23,7 @@ public class LogFilter {
             in.lines()
                     .filter(f -> {
                         String[] predicate = f.split(" ");
-                        return predicate[predicate.length - 2].equals("404")
-                                && !predicate[predicate.length - 1].equals("-");
+                        return predicate[predicate.length - 2].equals("404");
                     })
                     .forEach(result::add);
         } catch (IOException e) {
@@ -36,6 +35,6 @@ public class LogFilter {
     public static void main(String[] args) {
         LogFilter logFilter = new LogFilter();
         List<String> log = logFilter.filter("log.txt");
-        System.out.println(log);
+        log.forEach(System.out::println);
     }
 }
