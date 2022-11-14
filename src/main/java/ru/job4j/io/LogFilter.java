@@ -27,8 +27,7 @@ public class LogFilter {
                                 && !predicate[predicate.length - 1].equals("-");
                     })
                     .forEach(result::add);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
