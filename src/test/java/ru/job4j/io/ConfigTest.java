@@ -23,14 +23,11 @@ class ConfigTest {
         config.load();
     }
 
-
     @Test
-    void whenPairWithoutHasSeveral () {
+    void whenPairWithoutHasSeveral() {
         String path = "./data/pair_without_app_double.properties";
         Config config = new Config(path);
         config.load();
         assertThat(config.value("hibernate.connection.password")).isEqualTo("password=0305");
     }
-
-
 }
