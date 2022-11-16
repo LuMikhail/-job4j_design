@@ -17,7 +17,7 @@ import java.util.StringJoiner;
  */
 public class Config {
     private final String path;
-    private final Map<String, String> values = new HashMap<String, String>();
+    private final Map<String, String> values = new HashMap<>();
 
     public Config(final String path) {
         this.path = path;
@@ -26,13 +26,11 @@ public class Config {
     public void load() {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             read.lines()
-                    .filter(str -> !str.contains("#"))
+                    .filter(str -> !str.startsWith("#"))
                     .filter(str -> !str.isEmpty())
+                    .filter(this::checking)
                     .forEach(str -> {
                         String[] map = str.split("=", 2);
-                        if (map.length != 2) {
-                            throw new IllegalArgumentException();
-                        }
                         values.put(map[0], map[1]);
                     });
         } catch (IOException e) {
@@ -42,6 +40,22 @@ public class Config {
 
     public String value(String key) {
         return values.get(key);
+    }
+
+    private boolean checking(String fail) {
+        if (!fail.contains("=")) {
+            throw new IllegalArgumentException(
+                    String.format("this string: %s does not contain the symbol \"=\"", fail));
+        }
+        if (fail.startsWith("=")) {
+            throw new IllegalArgumentException(
+                    String.format("this string: %s does not contain a key", fail));
+        }
+        if (fail.indexOf("=") == fail.length() - 1) {
+            throw new IllegalArgumentException(
+                    String.format("this string: %s does not contain a value", fail));
+        }
+        return true;
     }
 
     @Override
