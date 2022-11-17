@@ -14,11 +14,11 @@ public class Analisis {
             boolean serverDoNotWork = true;
             while ((ranges = read.readLine()) != null) {
                 if ((ranges.contains("400") || ranges.contains("500")) && serverDoNotWork) {
-                    out.write("начало простоя - " + ranges.substring(3) + ";");
+                    out.write(String.format("начало простоя -%s; ", ranges.substring(3)));
                     serverDoNotWork = false;
                 }
                 if ((ranges.contains("200") || ranges.contains("300")) && !serverDoNotWork) {
-                    out.write(" конец простоя - " + ranges.substring(3) + ";");
+                    out.write(String.format("конец простоя -%s;", ranges.substring(3)));
                     out.write(System.lineSeparator());
                     serverDoNotWork = true;
                 }
