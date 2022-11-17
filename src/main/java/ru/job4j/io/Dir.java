@@ -3,7 +3,7 @@ package ru.job4j.io;
 import java.io.File;
 
 /**
- * Класс выводит на консоль только имя директории и его размер.
+ * Класс выводит на консоль только имя файла и его размер.
  */
 public class Dir {
     public static void main(String[] args) {
