@@ -4,6 +4,8 @@ import java.io.File;
 
 /**
  * Класс выводит на консоль только имя файла и его размер.
+ *  Данный метод работает корректно только с файлами.
+ *  Для каталогов он возвращает 0, либо размер метаданных каталога, но не суммарный размер файлов в нем.
  */
 public class Dir {
     public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class Dir {
         }
         for (File subfile : file.listFiles()) {
             System.out.printf("File name %s,", subfile.getName());
-            System.out.printf(" its size size %s%n", subfile.length());
+            System.out.printf(" its size %s%n", subfile.length());
         }
     }
 }
