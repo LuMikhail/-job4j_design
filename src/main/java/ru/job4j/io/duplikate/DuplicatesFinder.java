@@ -9,5 +9,9 @@ public class DuplicatesFinder {
         DuplicatesVisitor duplicates = new DuplicatesVisitor();
         Files.walkFileTree(Path.of("D:\\Рабочий стол\\дубликаты"), duplicates);
         duplicates.getDuplicates().forEach(System.out::println);
+        DuplicatesVisitorAlter duplicatesAlter = new DuplicatesVisitorAlter();
+        System.out.println("Альтернативный вариант:");
+        Files.walkFileTree(Path.of("D:\\Рабочий стол\\дубликаты"), duplicatesAlter);
+        duplicatesAlter.getDuplicates().forEach(System.out::println);
     }
 }
