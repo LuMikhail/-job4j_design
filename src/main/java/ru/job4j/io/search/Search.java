@@ -13,8 +13,9 @@ import java.util.function.Predicate;
  */
 public class Search {
     public static void main(String[] args) throws IOException {
-        Path start = Paths.get(".");
-        search(start, p -> p.toFile().getName().endsWith(".js")).forEach(System.out::println);
+        validate(args);
+        Path start = Paths.get(args[0]);
+        search(start, p -> p.toFile().getName().endsWith(args[1])).forEach(System.out::println);
     }
 
     /**
@@ -29,5 +30,25 @@ public class Search {
         SearchFiles searcher = new SearchFiles(condition);
         Files.walkFileTree(root, searcher);
         return searcher.getPaths();
+    }
+
+    /**
+     * Метод проверяет, что в программу передано нужное количество данных, а затем каждый принятый
+     * параметр проверяется на соответствие его содержимого требованиям программы.
+     *
+     * @param args аргументы, которые задаются в Configurations класса Search.
+     */
+    private static void validate(String[] args) {
+        if (!Files.isDirectory(Path.of(args[0]))) {
+            throw new IllegalArgumentException(String
+                    .format("Directory is missing %s check Configurations arguments", Path.of(args[0])));
+        }
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Configurations arguments is no file extension");
+        }
+        if (!args[1].equals("js")) {
+            throw new IllegalArgumentException(String
+                    .format("The file extension %s is not set correctly", Path.of(args[1])));
+        }
     }
 }
