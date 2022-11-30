@@ -39,12 +39,12 @@ public class Search {
      * @param args аргументы, которые задаются в Configurations класса Search.
      */
     private static void validate(String[] args) {
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Configurations arguments is no file extension or Directory");
+        }
         if (!Files.isDirectory(Path.of(args[0]))) {
             throw new IllegalArgumentException(String
-                    .format("Directory is missing %s check Configurations arguments", Path.of(args[0])));
-        }
-        if (args.length != 2) {
-            throw new IllegalArgumentException("Configurations arguments is no file extension");
+                    .format("Directory is missing %s check Configurations argument", Path.of(args[0])));
         }
         if (!args[1].equals("js")) {
             throw new IllegalArgumentException(String
