@@ -32,6 +32,7 @@ public class ConsoleChat {
      */
     public void run() throws IOException {
         List<String> result = new ArrayList<>();
+        List<String> rangeAnswers = readPhrases();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Random random = new Random();
         boolean check = true;
@@ -46,7 +47,7 @@ public class ConsoleChat {
                 check = false;
             }
             if (check) {
-                String botAnswer = readPhrases().get(random.nextInt(readPhrases().size()));
+                String botAnswer = rangeAnswers.get(random.nextInt(rangeAnswers.size()));
                 System.out.println(botAnswer);
                 result.add(botAnswer);
             }
@@ -60,7 +61,7 @@ public class ConsoleChat {
     /**
      * Метод читает фразы из файла.
      *
-     * @return Фразы из записываются в коллекцию.
+     * @return Фразы из файла записываются в коллекцию.
      */
     private List<String> readPhrases() {
         List<String> phrases = new ArrayList<>();
