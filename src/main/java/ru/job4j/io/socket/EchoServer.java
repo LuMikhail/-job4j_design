@@ -7,6 +7,11 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Класс реализует простейшее взаимодействие между клиентом и сервером с помощью сокетов.
+ * <p>Условие завершения работы сервера получение от клиента запроса -
+ * <p>"http://localhost:9000/?msg=Bye".
+ */
 public class EchoServer {
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(9000)) {
@@ -16,12 +21,12 @@ public class EchoServer {
                      BufferedReader in = new BufferedReader(
                              new InputStreamReader(socket.getInputStream()))) {
                     out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
-                    for (String str = in.readLine(); str != null && !str.isEmpty(); str = in.readLine()) {
-                        if (str.contains("msg=Bye")) {
-                            socket.close();
-                        }
-                        System.out.println(str);
+                    String str = in.readLine();
+                    if (str.contains("msg=Bye")) {
+                        socket.close();
                     }
+                    System.out.println(str);
+
                     out.flush();
                 }
             }
