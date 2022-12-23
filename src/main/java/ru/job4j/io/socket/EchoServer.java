@@ -12,7 +12,6 @@ import java.net.Socket;
  * Клиент отправляет запросы, сервер должен ему отвечать:
  * <p>Условие завершения работы сервера получение от клиента запроса - "http://localhost:9000/?msg=Exit".
  * <p>Ответить - Hello - "http://localhost:9000/?msg=Hello".
- * <p>Ответить - Hello - "http://localhost:9000/?msg=Hello".
  * <p> Во всех остальных случаях отправлять текст запроса - "What we will do".
  */
 public class EchoServer {
