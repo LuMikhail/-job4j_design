@@ -9,8 +9,11 @@ import java.net.Socket;
 
 /**
  * Класс реализует простейшее взаимодействие между клиентом и сервером с помощью сокетов.
- * <p>Условие завершения работы сервера получение от клиента запроса -
- * <p>"http://localhost:9000/?msg=Bye".
+ * Клиент отправляет запросы, сервер должен ему отвечать:
+ * <p>Условие завершения работы сервера получение от клиента запроса - "http://localhost:9000/?msg=Exit".
+ * <p>Ответить - Hello - "http://localhost:9000/?msg=Hello".
+ * <p>Ответить - Hello - "http://localhost:9000/?msg=Hello".
+ * <p> Во всех остальных случаях отправлять текст запроса - "What we will do".
  */
 public class EchoServer {
     public static void main(String[] args) {
@@ -22,8 +25,12 @@ public class EchoServer {
                              new InputStreamReader(socket.getInputStream()))) {
                     out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     String str = in.readLine();
-                    if (str.contains("msg=Bye")) {
+                    if (str.contains("msg=Exit")) {
                         socket.close();
+                    } else if (str.contains("msg=Hello")) {
+                        out.write("Hello, dear friend.".getBytes());
+                    } else {
+                        out.write("What we will do".getBytes());
                     }
                     System.out.println(str);
 
