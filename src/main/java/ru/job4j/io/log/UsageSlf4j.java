@@ -22,10 +22,11 @@ public class UsageSlf4j {
         char letter = 'j';
         long month = 12;
         double percent = 89.88;
+        short year = 2023;
         byte monthGraduation = 6;
         LOG.debug("User info name : {}, age : {}, height : {}, programming Language Java : {}, "
                   + "the first letter of the course : {}, average course completion time : {}, "
-                  + "guarantee of employment : {}, month of graduation : {}",
-                name, age, height, programmingLanguageJava, letter, month, percent, monthGraduation);
+                  + "guarantee of employment : {}, graduation of year {} and month {}",
+                name, age, height, programmingLanguageJava, letter, month, percent, year, monthGraduation);
     }
 }
