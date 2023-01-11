@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.job4j.io.log.UsageLog4j;
@@ -16,6 +17,7 @@ import ru.job4j.io.log.UsageLog4j;
  * <p>Условие завершения работы сервера получение от клиента запроса - "http://localhost:9000/?msg=Exit".
  * <p>Ответить - Hello - "http://localhost:9000/?msg=Hello".
  * <p> Во всех остальных случаях отправлять текст запроса - "What we will do".
+ * <p> Добавленна обработка  Exception через catch c выводом в логгер.
  */
 public class EchoServer {
 
@@ -43,7 +45,7 @@ public class EchoServer {
                 }
             }
         } catch (IOException e) {
-            LOG.error("Exception in log example", e);
+            LOG.error("Exception in log message", e);
         }
     }
 }
