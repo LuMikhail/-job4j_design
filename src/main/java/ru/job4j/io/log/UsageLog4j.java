@@ -1,7 +1,7 @@
 package ru.job4j.io.log;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Класс показывает работу Log4j.
@@ -11,10 +11,11 @@ import org.apache.log4j.Logger;
  * <p>Дата: %d{ISO8601}. Уровень сообщения: %5p. Класс, метод, строчка: %c:%M:%L
  * <p>Текст сообщения: %m%n. Уровень логирования log4j.rootLogger=DEBUG, console
  * <p>Настройки добавлены в файл /src/main/resources/log4j.properties
+ * <p> Добавлена работа с log4j через слой slf4j.
  */
 public class UsageLog4j {
 
-    private static final Logger LOG = LogManager.getLogger(UsageLog4j.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
         LOG.trace("trace message");
