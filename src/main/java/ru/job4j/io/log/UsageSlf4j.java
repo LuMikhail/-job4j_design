@@ -26,7 +26,7 @@ public class UsageSlf4j {
         byte monthGraduation = 6;
         LOG.debug("User info name : {}, age : {}, height : {}, programming Language Java : {}, "
                   + "the first letter of the course : {}, average course completion time : {}, "
-                  + "guarantee of employment : {}, graduation of year {} and month {}",
+                  + "guarantee of employment : {}, graduation of year {}  month {}",
                 name, age, height, programmingLanguageJava, letter, month, percent, year, monthGraduation);
     }
 }
