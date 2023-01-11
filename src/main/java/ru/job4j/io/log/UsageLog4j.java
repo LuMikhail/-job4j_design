@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * <p>Дата: %d{ISO8601}. Уровень сообщения: %5p. Класс, метод, строчка: %c:%M:%L
  * <p>Текст сообщения: %m%n. Уровень логирования log4j.rootLogger=DEBUG, console
  * <p>Настройки добавлены в файл /src/main/resources/log4j.properties
- * <p> Добавлена работа с log4j через слой slf4j.
+ * <p> Добавлена работа с log4j через слой slf4j зависимость была добавлена в \job4j_design\pom.xml.
  */
 public class UsageLog4j {
 
