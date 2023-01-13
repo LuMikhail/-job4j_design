@@ -17,6 +17,46 @@ public class Employee {
         this.kid = kid;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public boolean isMarried() {
+        return isMarried;
+    }
+
+    public void setMarried(boolean married) {
+        isMarried = married;
+    }
+
+    public String[] getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String[] hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public Kids getKid() {
+        return kid;
+    }
+
+    public void setKid(Kids kid) {
+        this.kid = kid;
+    }
+
     @Override
     public String toString() {
         return String.format("Employee(name=%s ,age=%s ,isMarried=%s ,hobbies=%s ,kid=%s)",
