@@ -1,0 +1,4 @@
+2023-01-11 12:19:47,686 DEBUG ru.job4j.io.log.UsageLog4j:main:22 - debug message
+2023-01-11 12:19:47,690  INFO ru.job4j.io.log.UsageLog4j:main:23 - info message
+2023-01-11 12:19:47,690  WARN ru.job4j.io.log.UsageLog4j:main:24 - warn message
+2023-01-11 12:19:47,691 ERROR ru.job4j.io.log.UsageLog4j:main:25 - error message
