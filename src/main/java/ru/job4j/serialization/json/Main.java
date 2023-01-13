@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 /**
  * Реализует процесс преобразования объекта типа Employee в Json так и наоборот.
+ *
+ * Реализовано преобразования объекта в JSONObject, и в json-строку.</p>
  */
 public class Main {
     public static void main(String[] args) {
