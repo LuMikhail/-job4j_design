@@ -32,11 +32,11 @@ create table phone(
 create table pages(
     id serial primary key,
     content varchar(250),
-    name varchar(50)
+    name varchar(50),
+    menus_id int references menus(id)
 );
 
 create table menus(
     id serial primary key,
-    name varchar(50),
-	pages_id int references pages(id)
+    name varchar(50)
 );
