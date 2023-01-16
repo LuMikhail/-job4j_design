@@ -19,15 +19,14 @@ VALUES
   (1,'Math',5),
   (2,'English',3),
   (3,'English',5);
-
   select name as firstname, subject as all_subject, score as all_Score
   from student join student_score using(student_id);
   
-  select name as firstname, subject as english, score
+  select name as firstname, subject as English, score
   from student join student_score using(student_id)
   Where subject = 'English';
   
-  select name as firstname, max(score) as best_score
+  select name as Firstname, max(score) as Best_Score
   from student join student_score using(student_id)
-  group by name
-  having name = 'Sergey';
+  where name = 'Sergey'
+  group by name;
