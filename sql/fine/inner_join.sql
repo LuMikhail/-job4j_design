@@ -22,11 +22,11 @@ VALUES
   select name as firstname, subject as all_subject, score as all_Score
   from student join student_score using(student_id);
   
-  select name as firstname, subject as English, score
+  select name as firstname, subject as english, score
   from student join student_score using(student_id)
   Where subject = 'English';
   
-  select name as Firstname, max(score) as Best_Score
+  select name as firstname, max(score) as best_score
   from student join student_score using(student_id)
   where name = 'Sergey'
   group by name;
