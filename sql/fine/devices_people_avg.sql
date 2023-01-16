@@ -34,8 +34,9 @@ join devices_people on device_id = devices.id
 join people on people_id = people.id
 group by people.name;
 
-select devices.name as devices, ROUND(avg(price)) as average_price
+select people.name as name, ROUND(avg(price)) as average_price
 from devices 
 join devices_people on device_id = devices.id
-group by devices.name
+join people on people_id = people.id
+group by people.name, devices.name
 having avg(price) > 5000;
