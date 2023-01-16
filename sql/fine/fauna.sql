@@ -13,5 +13,5 @@ insert into fauna(type_name, discovery_date) values('Rhinopithecus strykeri', '2
 select * from fauna where type_name like '%fish%';
 select * from fauna where avg_age between 10000 and 21000;
 select * from fauna where discovery_date is null;
-select * from fauna where date_part('year', discovery_date)	 > 1950;
+select * from fauna where date_part('year', discovery_date) < 1950;
 select * from fauna;
