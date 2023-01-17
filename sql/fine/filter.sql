@@ -28,20 +28,51 @@ values
 ('Beef', 3, true, 650),
 ('Turkey', 3, true, 420);
 
-select name_product from product join type using (type_id) where name_type in ('cheese');
+select name_product
+from product
+join type
+using (type_id)
+where name_type in ('cheese');
 
-select name_product from product join type using (type_id) where name_product like '%ice_cream%';
+select name_product
+from product
+join type
+using (type_id)
+where name_product like '%ice_cream%';
 
-select name_product, expired_date from product join type using (type_id) where expired_date = false;
+select name_product, expired_date
+from product
+join type
+using (type_id)
+where expired_date = false;
 
 select name_product, price
-from product join type using (type_id)  where price = (select max(price) from product);
+from product
+join type
+using (type_id)
+where price = (select max(price)
+               from product);
 
 select name_type, count(name_type) as count_name_type
- from product join type using (type_id) group by name_type;
+ from product
+ join type
+ using (type_id)
+ group by name_type;
 
-select name_product, name_type from product join type using (type_id) where name_type in ('cheese', 'milk');
+select name_product, name_type
+from product
+join type
+using (type_id)
+where name_type in ('cheese', 'milk');
 
-select name_type from product join type using (type_id) group by name_type having count(name_type) < 10;
+select name_type
+from product
+join type
+using (type_id)
+group by name_type
+having count(name_type) < 10;
 
-select name_product, name_type from product join type using (type_id);
+select name_product, name_type
+from product
+join type
+using (type_id);
