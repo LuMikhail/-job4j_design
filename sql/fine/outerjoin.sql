@@ -33,17 +33,17 @@ select name_departments, employees
 from departments
 cross join employees;
 
-select employees
+select name_departments
 from departments
-right join  employees using (departments_id)
-where departments_id is null;
+left join  employees using (departments_id)
+where name_employees is null;
 
-select * from departments
- left join employees using (departments_id);
+select * from employees
+ left join departments using (departments_id);
 
-select * from departments
-right join employees using (departments_id)
-where employees is not null;
+select departments_id, id, name_employees, name_departments
+from departments
+right join employees using (departments_id);
 
 create table teens(
     id serial primary key,
