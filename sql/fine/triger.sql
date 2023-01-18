@@ -12,9 +12,9 @@ create table history_of_price (
     price integer,
     date timestamp
 );
-/*“риггер должен срабатывать после вставки данных, дл€ любого товара и просто насчитывать
-налог на товар (нужно прибавить налог к цене товара). ƒействовать он должен не на каждый р€д,
-а на запрос (statement уровень)*/
+/*The trigger should be triggered after inserting data for any product and simply calculate
+the tax on the product (you need to add the tax to the price of the product). It should act not on each row,
+but on the request (statement level).*/
 
 create or replace function tax_rate_statement()
     returns trigger as
@@ -35,8 +35,8 @@ create trigger tax_trigger
     execute procedure tax_rate_statement();
 
 
-/*“риггер должен срабатывать до вставки данных и насчитывать налог
-на товар (нужно прибавить налог к цене товара). «десь используем row уровень.*/
+/*The trigger must be triggered before inserting the data and calculate the tax
+on the product (you need to add the tax to the price of the product). Here we use the row level.*/
 
 create or replace function tax_rate_row()
     returns trigger as
@@ -53,8 +53,8 @@ create trigger tax_trigger_row
     for each row
     execute procedure tax_rate_row();
 
-/* триггер на row уровне, который при вставке продукта в таблицу products,
- будет заносить им€, цену и текущую дату в таблицу history_of_price. */
+/* A trigger at the row level, which, when inserting a product into the products table,
+will enter the name, price and current date in the history_of_price table. */
 
 create or replace function add_history_of_price()
     returns trigger as
