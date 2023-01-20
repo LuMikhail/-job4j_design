@@ -18,9 +18,8 @@ language 'plpgsql'
 as
 $$
     begin
-        if products_name = d_products_name THEN
              delete from products
-             where count = d_count;
+             where products_name = d_products_name and count = d_count;
         end if;
     end;
 $$;
