@@ -42,17 +42,17 @@ right join cars using (body_id)
 left join car_engines using (engine_id)
 left join car_transmissions using (transmission_id);
 
-select car_name
+select body_name
 from car_bodies
-right join cars using (body_id)
-where body_name is null;
+left join cars using (body_id)
+where car_name is null;
 
-select car_name
+select engine_name
 from  cars
-left join car_engines using (engine_id)
-where engine_name is null;
+right join car_engines using (engine_id)
+where car_name is null;
 
-select car_name
+select transmission_name
 from cars
-left join car_transmissions using (transmission_id)
-where transmission_name is null;
+right join car_transmissions using (transmission_id)
+where car_name is null;
