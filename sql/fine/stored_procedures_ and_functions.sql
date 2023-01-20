@@ -20,7 +20,6 @@ $$
     begin
              delete from products
              where products_name = d_products_name and count = d_count;
-        end if;
     end;
 $$;
 insert into products(products_name, producer, count, price) values ('product_3', 'producer_3', 8, 115);
