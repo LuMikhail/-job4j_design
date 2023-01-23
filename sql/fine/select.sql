@@ -29,5 +29,4 @@ values (2, 2), (6, 3);
 
 select first_name, last_name
 from customers
-left join orders using (customer_id)
-where customer_id  not in (select customer_id from orders);
+where customer_id not in (select customer_id from orders);
